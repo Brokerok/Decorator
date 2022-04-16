@@ -5,7 +5,7 @@ def timer(func):
     def f(*args, **kwargs):
         start = datetime.datetime.now()
         func(*args, **kwargs)
-        print((start - datetime.datetime.now()).microseconds)
+        print((start - datetime.datetime.now()).seconds)
     return f
 
 
