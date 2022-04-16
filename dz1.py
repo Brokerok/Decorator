@@ -1,5 +1,4 @@
 import datetime
-from random import randint
 
 
 def timer(func):
@@ -21,20 +20,3 @@ def bubble(array):
 
 
 bubble_timer = timer(bubble)
-N = 10000
-n = 10
-a = []
-b = []
-for i in range(N):
-    a.append(randint(1, 999999))
-
-for i in range(n):
-    b.append(randint(1, 9999))
-
-
-print(b)
-print(a)
-print(bubble(b))
-print(bubble(a))
-bubble_timer(b)
-bubble_timer(a)
