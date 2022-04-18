@@ -1,22 +1,17 @@
-import datetime
+import time
+from functools import wraps
 
 
-def timer(func):
-    def f(*args, **kwargs):
-        start = datetime.datetime.now()
-        func(*args, **kwargs)
-        print((start - datetime.datetime.now()).seconds)
-    return f
+def decorator(f):
+    @wraps(f)
+    def answer_f(*args, **kwargs):
+        t = time.monotonic()
+        return_f = f(*args, **kwargs)
+        print(time.monotonic() - t)
+        return return_f
+    return answer_f
 
 
-def bubble(array):
-    for i in range(len(array) - 1):
-        for j in range(len(array) - i - 1):
-            if array[j] > array[j + 1]:
-                buff = array[j]
-                array[j] = array[j + 1]
-                array[j + 1] = buff
-    return array
-
-
-bubble_timer = timer(bubble)
+@decorator
+def say_hello():
+    print('Hello')
